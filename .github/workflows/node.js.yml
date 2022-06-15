@@ -35,7 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: NodeJS Create Release
-      uses: gregoranders/nodejs-create-release@v0.0.18
+    - uses: actions/checkout@v3
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@v4
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        title: New version
 
     
