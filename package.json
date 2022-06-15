@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node fake-test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/samoldham/testcli#readme",
   "bin": {
     "test-cli": "./cli.js"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }
