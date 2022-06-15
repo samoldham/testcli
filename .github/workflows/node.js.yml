@@ -47,5 +47,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       with:
         title: ${{steps.semantic.outputs.version}}
-
+        tag: ${{steps.semantic.outputs.version}}
     
