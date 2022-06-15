@@ -37,28 +37,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Semantic Release
-      uses: PaulHatch/semantic-version@v5.0.0-alpha2
+    - name: Git Semantic Version
       id: semantic
+      uses: PaulHatch/semantic-version@v5.0.0-alpha2
       with:
-        branches: |
-          [
-            '+([0-9])?(.{+([0-9]),x}).x',
-            'master',
-            'main',
-            'next',
-            'next-major',
-            {
-              name: 'beta',
-              prerelease: true
-            },
-            {
-              name: 'alpha',
-              prerelease: true
-            }
-          ]
-        extra_plugins: |
-          @semantic-release/git
-          @semantic-release/changelog
+        bump_each_commit: true
+      
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@v4
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      with:
+        title: ${{steps.semantic.outputs.version}}
+        tag: ${{steps.semantic.outputs.version}}
