@@ -29,9 +29,6 @@ jobs:
     - run: npm ci
     - run: npm test
     
-    - name: Git Semantic Version
-      uses: PaulHatch/semantic-version@v5.0.0-alpha2
-    
   release: 
     
     needs: build
@@ -39,11 +36,16 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Git Semantic Version
+      id: semantic
+      uses: PaulHatch/semantic-version@v5.0.0-alpha2
+      
     - name: Create a Release
       uses: elgohr/Github-Release-Action@v4
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       with:
-        title: New version
+        title: ${{steps.semantic.outputs.version}}
 
     
