@@ -35,24 +35,28 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Git Semantic Version
-      id: semantic
-      uses: PaulHatch/semantic-version@v5.0.0-alpha2
+    - name: Checkout
+      uses: actions/checkout@v3
+  
+    - name: Semantic Release
+      uses: cycjimmy/semantic-release-action@v3
       with:
-        bump_each_commit: true
-        tag_prefix: ""
-        major_pattern: (MAJOR)
-        minor_pattern: (MINOR)
-        version_format: ${major}.${minor}.${patch}
-        search_commit_body: false
-        user_format_type: csv
-      
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@v4
+        semantic_version: 16
+        # you can set branches for semantic-release above v16.
+        branches: |    
+          [
+            '+([0-9])?(.{+([0-9]),x}).x',
+            'master', 
+            'next', 
+            'next-major', 
+            {
+              name: 'beta', 
+              prerelease: true
+            }, 
+            {
+              name: 'alpha', 
+              prerelease: true
+            }
+          ]
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      with:
-        title: ${{steps.semantic.outputs.version}}
-        tag: ${{steps.semantic.outputs.version}}
