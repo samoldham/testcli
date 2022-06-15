@@ -29,6 +29,9 @@ jobs:
     - run: npm ci
     - run: npm test
     
+    - name: Git Semantic Version
+      uses: PaulHatch/semantic-version@v5.0.0-alpha2
+    
   release: 
     
     needs: build
