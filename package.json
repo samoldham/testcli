@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/samoldham/testcli#readme",
   "bin": {
-    "test-cli": "./cli.js"
+    "test-cli": "./dist/cli.js"
   },
   "devDependencies": {
     "@semantic-release/github": "^8.0.4",
