@@ -21,7 +21,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-
+    - run: npm ci
+    - run: npm test
+    - run: npm run build
+    - run: tar -zcvf package.tar.gz .
 
     - name: Release
       uses: google-github-actions/release-please-action@v3
@@ -30,6 +33,11 @@ jobs:
         release-type: node
         package-name: testcli
 
-    - run: npm ci
-    - run: npm run build
-
+    - name: Upload binaries to release
+      if: steps.create_release.outputs.release_created
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./package.tar.gz
+        asset_name: package.tar.gz
+        tag: ${{ steps.create_release.outputs.tag_name }}
