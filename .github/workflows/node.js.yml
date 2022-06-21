@@ -25,7 +25,6 @@ jobs:
     - run: npm test
     - run: npm run build
     - run: tar -zcvf package.tar.gz ./dist
-    - run: dir
 
     - name: Release
       uses: google-github-actions/release-please-action@v3
@@ -33,6 +32,14 @@ jobs:
       with:
         release-type: node
         package-name: testcli
+
+    - name: Checkout code
+      if: steps.create_release.outputs.release_created
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      if: steps.create_release.outputs.release_created
+      run: npm ci
+      run: npm run build
 
     - name: Upload binaries to release
       if: steps.create_release.outputs.release_created
