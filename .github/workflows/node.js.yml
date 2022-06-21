@@ -25,6 +25,7 @@ jobs:
     - run: npm test
     - run: npm run build
     - run: tar -zcvf package.tar.gz ./dist
+    - run: dir
 
     - name: Release
       uses: google-github-actions/release-please-action@v3
