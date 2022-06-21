@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.6](https://github.com/samoldham/testcli/compare/v2.1.5...v2.1.6) (2022-06-21)
+
+
+### Bug Fixes
+
+* .yml ([4d699f5](https://github.com/samoldham/testcli/commit/4d699f5d26fbf1095f4ea5c38b5e4d0682b0c628))
+* .yml ([e0141e2](https://github.com/samoldham/testcli/commit/e0141e2521e8d4d2c781055b55e1a77c6d899a4c))
+* .yml ([ff5d449](https://github.com/samoldham/testcli/commit/ff5d449c139e72f9844bf22901e8c5dd204ca998))
+* .yml ([b095f49](https://github.com/samoldham/testcli/commit/b095f490ba05b4e3992dbe2227042a62482de000))
+* .yml ([218b2ea](https://github.com/samoldham/testcli/commit/218b2eac235629d666043941edbdc565112d2df4))
+* .yml ([d0e8312](https://github.com/samoldham/testcli/commit/d0e83122286775be301d3346f029cea9fc08b704))
+* .yml ([c13ce47](https://github.com/samoldham/testcli/commit/c13ce4744186efca2e36527ba2ddeaea5be17c3e))
+
 ## [2.1.5](https://github.com/samoldham/testcli/compare/v2.1.4...v2.1.5) (2022-06-21)
 
 
