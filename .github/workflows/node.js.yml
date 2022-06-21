@@ -23,7 +23,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - run: cd dir
+    - run: cd dist
     - run: cat cli.js
     - name: release-please
       uses: google-github-actions/release-please-action@v3
