@@ -22,12 +22,29 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build
-    - run: cd dist
-    - run: dir
-    - run: cat cli.js
-    - name: release-please
+    - run: npm pack --pack-destination="./package"
+
+  release:
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Release-please
       uses: google-github-actions/release-please-action@v3
+      id: create_release
       with:
         release-type: node
         package-name: testcli
+
+    - name: Upload binaries to release
+      if: steps.create_release.outputs.release_created
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./package
+        asset_name: package.tgz
+        tag: ${{ steps.create_release.outputs.tag_name }}
