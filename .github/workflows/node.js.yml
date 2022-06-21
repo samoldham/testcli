@@ -39,5 +39,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ./package.tar.gz
-        asset_name: package
+        asset_name: package.tar.gz
         tag: ${{ steps.create_release.outputs.tag_name }}
