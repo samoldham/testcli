@@ -32,11 +32,11 @@ jobs:
       with:
         release-type: node
         package-name: testcli
-        
+
     - name: Install dependencies
       if: steps.create_release.outputs.release_created
-      - run: npm ci
-      - run: npm run build
+    - run: npm ci
+    - run: npm run build
 
     - name: Upload binaries to release
       if: steps.create_release.outputs.release_created
