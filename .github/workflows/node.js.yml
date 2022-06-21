@@ -21,10 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm test
-    - run: npm run build
-    - run: tar -zcvf package.tar.gz ./dist
+
 
     - name: Release
       uses: google-github-actions/release-please-action@v3
