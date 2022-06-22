@@ -23,7 +23,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
-    - run: npm run build
+    - run: npm pack
 
     - name: Release
       uses: google-github-actions/release-please-action@v3
@@ -37,6 +37,6 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: .
+        file: ./samoldham-testcli-2.1.10.tgz
         asset_name: package.tar.gz
         tag: ${{ steps.create_release.outputs.tag_name }}

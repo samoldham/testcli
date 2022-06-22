@@ -1,5 +1,5 @@
 {
-  "name": "testcli",
+  "name": "@samoldham/testcli",
   "version": "2.1.9",
   "description": "",
   "main": "index.js",
@@ -24,15 +24,5 @@
   "devDependencies": {
     "@semantic-release/github": "^8.0.4",
     "jest": "^28.1.1"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/github"
-    ]
   }
 }
