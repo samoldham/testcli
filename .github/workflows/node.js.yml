@@ -37,6 +37,6 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./samoldham-testcli-2.1.10.tgz
+        file: ./samoldham-testcli-${{ steps.create_release.outputs.tag_name }}.tgz
         asset_name: package.tar.gz
-        tag: ${{ steps.create_release.outputs.tag_name }}
+        tag: 
