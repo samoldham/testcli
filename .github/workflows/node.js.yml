@@ -32,11 +32,13 @@ jobs:
         release-type: node
         package-name: testcli
 
+    - run: echo ${{steps.create_release.outputs.major}}.${{steps.create_release.outputs.minor}}.${{steps.create_release.outputs.patch}}
+
     - name: Upload binaries to release
       if: steps.create_release.outputs.release_created
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./samoldham-testcli-${{ steps.create_release.outputs.tag_name }}.tgz
+        file: ./samoldham-testcli-${{steps.create_release.outputs.major}}.${{steps.create_release.outputs.minor}}.${{steps.create_release.outputs.patch}}.tgz
         asset_name: package.tar.gz
-        tag: 
+        tag: ${{ steps.create_release.outputs.tag_name }}
