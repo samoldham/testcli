@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.11](https://github.com/samoldham/testcli/compare/v2.1.10...v2.1.11) (2022-06-22)
+
+
+### Bug Fixes
+
+* .yml ([0ba8c28](https://github.com/samoldham/testcli/commit/0ba8c281e63b005acc48ca430b5355d4a3d4fe1f))
+
 ## [2.1.10](https://github.com/samoldham/testcli/compare/v2.1.9...v2.1.10) (2022-06-22)
 
 
