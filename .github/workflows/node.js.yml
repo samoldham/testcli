@@ -48,7 +48,7 @@ jobs:
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
 
-      if: steps.create_release.outputs.release_created
     - run: npm publish
+      if: steps.create_release.outputs.release_created
       env:
         NODE_AUTH_TOKEN: ${{ secrets.PAT_TOKEN }}
