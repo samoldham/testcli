@@ -41,11 +41,14 @@ jobs:
         asset_name: package.tar.gz
         tag: ${{ steps.create_release.outputs.tag_name }}
 
-    - name: Publish to github packages
+    - name: Set up node
+      if: steps.create_release.outputs.release_created
       uses: actions/setup-node@v3
       with: 
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
+
+      if: steps.create_release.outputs.release_created
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.PAT_TOKEN }}
