@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.13](https://github.com/samoldham/testcli/compare/v2.1.12...v2.1.13) (2022-06-23)
+
+
+### Bug Fixes
+
+* add readme ([44707d2](https://github.com/samoldham/testcli/commit/44707d272e68e56a7f4bc9bc26267124c3c5d27a))
+
 ## [2.1.12](https://github.com/samoldham/testcli/compare/v2.1.11...v2.1.12) (2022-06-22)
 
 
