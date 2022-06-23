@@ -32,8 +32,6 @@ jobs:
         release-type: node
         package-name: testcli
 
-    - run: echo ${{steps.create_release.outputs.major}}.${{steps.create_release.outputs.minor}}.${{steps.create_release.outputs.patch}}
-
     - name: Upload binaries to release
       if: steps.create_release.outputs.release_created
       uses: svenstaro/upload-release-action@v2
@@ -42,3 +40,12 @@ jobs:
         file: ./samoldham-testcli-${{steps.create_release.outputs.major}}.${{steps.create_release.outputs.minor}}.${{steps.create_release.outputs.patch}}.tgz
         asset_name: package.tar.gz
         tag: ${{ steps.create_release.outputs.tag_name }}
+
+    - name: Publish to github packages
+      uses: actions/setup-node@v3
+      with: 
+        node-version: '16.x'
+        registry-url: 'https://npm.pkg.github.com'
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.TOKEN }}
